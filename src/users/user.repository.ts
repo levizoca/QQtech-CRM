@@ -1,7 +1,7 @@
 import { ConflictException, InternalServerErrorException } from "@nestjs/common";
 import { CustomRepository } from "src/database/typeorm-ex.decorator"
 import { Repository } from "typeorm"
-import { CreateUserDto } from "./dtos/create-user.dto";
+import { CreateUserDto } from "./dto/create-user.dto";
 import { UserRole } from "./user-roles.enum";
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
