@@ -17,25 +17,25 @@ export class AppController {
     return { message: 'Hello world!' };
   }
 
-  @Get('/cadastroColab')
-  @Render('cadastroColab')
+  @Get('/cadastro/colaborador')
+  @Render('cadastroColaborador')
   cadastroColab() {
     return { message: 'Hello world!' };
   }
 
-  @Get('/cadastroCRM')
+  @Get('/cadastro/crm')
   @Render('cadastroCRM')
   cadastroCRM() {
     return { message: 'Hello world!' };
   }
 
-  @Get('/crmView')
-  @Render('crmView')
+  @Get('/visualizar/crm')
+  @Render('visualizarCRM')
   crmView() {
     return { message: 'Hello world!' };
   }
 
-  @Get('/atualizarCRM')
+  @Get('/atualizar/crm')
   @Render('atualizarCRM')
   atualizarCRM() {
     return { message: 'Hello world!' };
