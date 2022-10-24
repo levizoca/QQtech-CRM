@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
 import { CreateColaboradorDto } from 'src/dto/create-colaborador.dto';
+import { UpdateColaboradorDto } from 'src/dto/update-colaborador.dto';
 import { Colaborador } from 'src/entities/colaborador.entity';
 import { ColaboradorService } from 'src/services/colaborador.service';
 
@@ -20,6 +21,11 @@ export class ColaboradorController {
     @Get(':id')
     findOne(@Param('id', ParseIntPipe) id: number): Promise<Colaborador> {
         return this.colaboradorService.findOne(id);
+    }
+
+    @Patch(':id')
+    update(@Param('id') id: number, @Body() updateColaboradorDto: UpdateColaboradorDto) {
+        return this.colaboradorService.update(id, updateColaboradorDto);
     }
 
     @Delete(':id')

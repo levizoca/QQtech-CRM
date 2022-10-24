@@ -1,4 +1,4 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { Setor } from './setor.entity';
 
 @Entity()
@@ -22,5 +22,6 @@ export class Colaborador extends BaseEntity {
     senha: string;
 
     @ManyToOne(type => Setor, setor => setor.colaboradores)
+    @JoinColumn({ name: 'setor_nome', referencedColumnName: 'nome' })
     setor: Setor;
 }

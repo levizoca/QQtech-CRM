@@ -1,29 +1,37 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { CreateSetorDto } from 'src/dto/create-setor.dto';
+import { UpdateSetorDto } from 'src/dto/update-setor.dto';
 import { Setor } from 'src/entities/setor.entity';
 import { SetorService } from 'src/services/setor.service';
 
 @Controller('setor')
 export class SetorController {
-    constructor(private readonly colaboradorService: SetorService) { }
-
+    constructor(private readonly setorService: SetorService) { }
+    
     @Post('/create')
-    create(@Body() createColaboradorDto: CreateSetorDto): Promise<Setor> {
-        return this.colaboradorService.create(createColaboradorDto);
+    create(@Body() createSetorDto: CreateSetorDto): Promise<Setor> {
+        return this.setorService.create(createSetorDto);
     }
 
     @Get('/all')
     async findAll(): Promise<Setor[]> {
-        return await this.colaboradorService.findAll();
+        return await this.setorService.findAll();
     }
 
-    @Get(':id')
-    findOne(@Param('id', ParseIntPipe) id: number): Promise<Setor> {
-        return this.colaboradorService.findOne(id);
+    /*"Validation failed (numeric string is expected)"*/
+    @Get(':nome')
+    findOne(@Param('nome', ParseIntPipe) nome: string): Promise<Setor> {
+        return this.setorService.findOne(nome);
     }
 
-    @Delete(':id')
-    remove(@Param('id') id: string): Promise<void> {
-        return this.colaboradorService.remove(id);
+    /*Cannot set properties of null (setting 'nome')*/
+    @Patch(':nome')
+    update(@Param('nome') nome: string, @Body() updateSetorDto: UpdateSetorDto) {
+        return this.setorService.update(nome, updateSetorDto);
+    }
+
+    @Delete(':nome')
+    remove(@Param('nome') id: string): Promise<void> {
+        return this.setorService.remove(id);
     }
 }

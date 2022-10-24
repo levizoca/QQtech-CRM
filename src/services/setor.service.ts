@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { CreateSetorDto } from 'src/dto/create-setor.dto';
+import { UpdateSetorDto } from 'src/dto/update-setor.dto';
 import { Setor } from 'src/entities/setor.entity';
 import { Repository } from 'typeorm';
 
@@ -22,11 +23,19 @@ export class SetorService {
         return this.SetorService.save(setor);
     }
 
-    findOne(id: number): Promise<Setor> {
-        return this.SetorService.findOneBy({ id: id });
+    findOne(nome: string): Promise<Setor> {
+        return this.SetorService.findOneBy({ nome: nome });
     }
 
-    async remove(id: string): Promise<void> {
-        await this.SetorService.delete(id);
+    async update(nome: string, updateSetorDto: UpdateSetorDto) {
+        const setor = await this.SetorService.findOneBy({nome});
+        setor.nome = updateSetorDto.nome;
+        setor.descricao = updateSetorDto.descricao;
+
+        return this.SetorService.save(setor);
+    }
+
+    async remove(nome: string): Promise<void> {
+        await this.SetorService.delete(nome);
     }
 }

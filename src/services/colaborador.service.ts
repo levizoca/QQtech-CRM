@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { CreateColaboradorDto } from 'src/dto/create-colaborador.dto';
+import { UpdateColaboradorDto } from 'src/dto/update-colaborador.dto';
 import { Repository } from 'typeorm';
 import { Colaborador } from '../entities/colaborador.entity';
 
@@ -21,12 +22,25 @@ export class ColaboradorService {
         colaborador.email = CreateColaboradorDto.email;
         colaborador.cargo = CreateColaboradorDto.cargo;
         colaborador.senha = CreateColaboradorDto.senha;
+        colaborador.setor = CreateColaboradorDto.setor;
 
         return this.ColaboradorService.save(colaborador);
     }
 
     findOne(id: number): Promise<Colaborador> {
         return this.ColaboradorService.findOneBy({ id: id });
+    }
+
+    async update(id: number, updateColaboradorDto: UpdateColaboradorDto) {
+        const colaborador = await this.ColaboradorService.findOneBy({id});
+        colaborador.nome = updateColaboradorDto.nome;
+        colaborador.cpf = updateColaboradorDto.cpf;
+        colaborador.email = updateColaboradorDto.email;
+        colaborador.cargo = updateColaboradorDto.cargo;
+        colaborador.senha = updateColaboradorDto.senha;
+        colaborador.setor = updateColaboradorDto.setor;
+
+        return this.ColaboradorService.save(colaborador);
     }
 
     async remove(id: string): Promise<void> {
