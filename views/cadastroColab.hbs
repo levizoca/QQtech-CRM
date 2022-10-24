@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleCadastroColab.css">
+    <link rel="stylesheet" href="/base.css">
+    <title>Cadastro Colaborador</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"> </script>
+</head>
+
+<body>
+    <div class="background">
+        <header class="header">
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+                <i class="fas fa-times" id="cancel"></i>
+            </label>
+            <div class="sidebar">
+                <header>
+                    <h3>Bem-Vindo</h3><b></b>
+                </header>
+                <a href="/home">
+                    <i class="fas fa-home"></i>
+                    <span>Página inicial</span>
+                </a>
+                <a href="/cadastroColab">
+                    <i class="fas fa-user-alt"></i>
+                    <span>Colaboradores</span>
+                </a>
+                <a href="/crmView">
+                    <i class="fas fa-stream"></i>
+                    <span>Visualizar CRM</span>
+                </a>
+                <a href="/cadastroCRM">
+                    <i class="fas fa-stream"></i>
+                    <span>Criar CRM</span>
+                </a>
+                <a href="/login">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </header class="masthead">
+        <br><h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Cadastro de Colaboradores</h1>
+        <div class="container">
+            <div class="cadastroForm">
+                <form action="">
+                    <br>
+                    <label for="Nome" class="formLabel">Nome:</label><br>
+                    <input placeholder="  Nome" type="text" class="formInput"><br><br>
+
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label for="CPF" class="formLabel-50">CPF:</label><br>
+                            <input placeholder="  CPF" type="text" class="formInput-50"><br>
+                        </div>
+                        <div class="coluna-50">
+                            <label for="Setor" class="formLabel-50">Setor:</label><br>
+                            <select class="formInput-50" name="Setores envolvidos">
+                                <option value="Fiscal">Fiscal</option>
+                                <option value="TI">TI</option>
+                                <option value="RH">RH</option>
+                            </select>
+                        </div>
+                    </div><br>
+
+                    <label for="Cargo" class="formLabel">Cargo:</label><br>
+                    <input placeholder="  Cargo" type="text" class="formInput"><br><br>
+    
+                    <label for="Senha" class="formLabel">Senha:</label><br>
+                    <input placeholder="  Senha" type="password" class="formInput"><br><br>
+                    
+                    <label for="Confirmar senha:" class="formLabel">Confirmar senha:</label><br>
+                    <input placeholder="  Confirmar senha:" type="password" class="formInput"><br><br>
+    
+                    <input type="button" value="Cadastrar" class="botaoCadastrar"><br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

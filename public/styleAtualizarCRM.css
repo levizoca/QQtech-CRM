@@ -1,0 +1,139 @@
+.background-1 {
+    background: linear-gradient(90deg, #658a5e, #d2ffda);
+    width: 100vw;
+}
+
+.formInput {
+    border-radius: 7px;
+    border-width: 0px;
+    height: 18px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+    width: 90%;
+}
+
+.formInput-50 {
+    border-radius: 7px;
+    border-width: 0px;
+    height: 18px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+    width: 80%;
+}
+
+.formLabel {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.linha {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.coluna-50 {
+    width: 50%;
+}
+
+.botaoAtualizar {
+    background-color: #5e864c;
+    font-weight: bold;
+    color: antiquewhite;
+    border-radius: 7px;
+    border-width: 0px;
+    width: 120px;
+    height: 30px;
+}
+
+.botaoRejeitar {
+    background-color: #8b3030;
+    font-weight: bold;
+    color: antiquewhite;
+    border-radius: 7px;
+    border-width: 0px;
+    width: 120px;
+    height: 30px;
+}
+
+.botaoAceitar {
+    background-color: #4c8286;
+    font-weight: bold;
+    color: antiquewhite;
+    border-radius: 7px;
+    border-width: 0px;
+    width: 120px;
+    height: 30px;
+}
+
+.cadastroForm .botaoAtualizar:hover {
+    background-color: #5b9c50;
+    color: white;
+}
+
+.cadastroForm .botaoAceitar:hover {
+    background-color: #50689c;
+    color: white;
+}
+
+.cadastroForm .botaoRejeitar:hover {
+    background-color: #612828;
+    color: white;
+}
+
+.containerCadastro {
+    display: flex;
+    justify-content: center;
+}
+
+.cadastroForm {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgb(201, 201, 201);
+    box-shadow: 4px 4px 5px 0px rgb(100, 100, 100);
+}
+
+.logo {
+    max-width: 200px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+}
+
+.textArea-50 {
+    max-width: 90%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 520px) {
+    .textArea {
+        max-width: 300px;
+    }
+
+    .textArea-50 {
+        max-width: 300px;
+    }
+
+    .linha {
+        display: flex;
+    }
+
+    .cadastroForm {
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 40px;
+        width: 350px;
+        border-radius: 10px;
+        background-color: rgb(201, 201, 201);
+        box-shadow: 4px 4px 5px 0px rgb(100, 100, 100);
+    }
+
+    .coluna-50 {
+        width: 100%;
+    }
+}
