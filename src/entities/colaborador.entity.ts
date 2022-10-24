@@ -1,4 +1,5 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne } from 'typeorm';
+import { Setor } from './setor.entity';
 
 @Entity()
 export class Colaborador extends BaseEntity {
@@ -19,4 +20,7 @@ export class Colaborador extends BaseEntity {
 
     @Column({ nullable: false, type: 'varchar', length: 45 })
     senha: string;
+
+    @ManyToOne(type => Setor, setor => setor.colaboradores)
+    setor: Setor;
 }
