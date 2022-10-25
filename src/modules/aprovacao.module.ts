@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
+import { AprovacaoController } from 'src/controllers/aprovacao.controller';
 import { DatabaseModule } from 'src/database/database.module';
-import { documentoProviders } from 'src/providers/documento.provider';
-import { DocumentoService } from 'src/services/documento.service';
-import { DocumentoController } from '../controllers/documento.controller';
+import { aprovacaoProviders } from 'src/providers/aprovacao.provider';
+import { AprovacaoService } from 'src/services/aprovacao.service';
+
 
 @Module({
   imports: [DatabaseModule],
   providers: [
-    ...documentoProviders,
-    DocumentoService,
+    ...aprovacaoProviders,
+    AprovacaoService,
   ],
-  controllers: [DocumentoController]
+  controllers: [AprovacaoController]
 })
-export class DocumentoModule {}
+export class AprovacaoModule {}

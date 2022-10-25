@@ -1,4 +1,4 @@
 import { Controller } from '@nestjs/common';
 
 @Controller('documento')
-export class AprovacaoController {}
+export class CrmController {}

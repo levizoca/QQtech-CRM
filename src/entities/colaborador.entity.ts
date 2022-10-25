@@ -1,5 +1,6 @@
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { Aprovacao } from './aprovacao.entity';
+import { Crm } from './crm.entity';
 import { Setor } from './setor.entity';
 
 @Entity()
@@ -28,4 +29,7 @@ export class Colaborador extends BaseEntity {
 
     @OneToMany(() => Aprovacao, (aprovacao) => aprovacao.colaborador)
     aprovacoes: Aprovacao[];
+
+    @OneToMany(() => Crm, (crm) => crm.colaborador)
+    crms: Crm[];
 }
