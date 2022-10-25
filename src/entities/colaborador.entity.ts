@@ -1,4 +1,5 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, ManyToMany, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
+import { Aprovacao } from './aprovacao.entity';
 import { Setor } from './setor.entity';
 
 @Entity()
@@ -24,4 +25,7 @@ export class Colaborador extends BaseEntity {
     @ManyToOne(type => Setor, setor => setor.colaboradores)
     @JoinColumn({ name: 'setor_nome', referencedColumnName: 'nome' })
     setor: Setor;
+
+    @OneToMany(() => Aprovacao, (aprovacao) => aprovacao.colaborador)
+    aprovacoes: Aprovacao[];
 }
