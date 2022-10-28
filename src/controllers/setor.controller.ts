@@ -18,18 +18,18 @@ export class SetorController {
         return await this.setorService.findAll();
     }
 
-    @Get(':idSetor')
-    findOne(@Param('idSetor', ParseIntPipe) idSetor: number): Promise<Setor> {
-        return this.setorService.findOne(idSetor);
+    @Get(':nome')
+    findOne(@Param('nome') nome: string): Promise<Setor> {
+        return this.setorService.findOne(nome);
     }
 
-    @Patch(':idSetor')
-    update(@Param('idSetor') idSetor: number, @Body() updateSetorDto: UpdateSetorDto) {
-        return this.setorService.update(idSetor, updateSetorDto);
+    @Patch(':nome')
+    update(@Param('nome') nome: string, @Body() updateSetorDto: UpdateSetorDto) {
+        return this.setorService.update(nome, updateSetorDto);
     }
 
-    @Delete(':idSetor')
-    remove(@Param('idSetor') idSetor: number): Promise<void> {
-        return this.setorService.remove(idSetor);
+    @Delete(':nome')
+    remove(@Param('nome') nome: string): Promise<void> {
+        return this.setorService.remove(nome);
     }
 }

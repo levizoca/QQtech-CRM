@@ -5,7 +5,7 @@ export class Documento extends BaseEntity {
     @PrimaryGeneratedColumn()
     idDocumento: number;
 
-    @Column({ nullable: false, type: 'text'})
+    @Column({ nullable: true, type: 'text'})
     descricao: string;
 
     @Column({ nullable: false, type: 'bytea'})

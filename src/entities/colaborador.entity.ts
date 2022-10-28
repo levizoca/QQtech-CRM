@@ -24,7 +24,7 @@ export class Colaborador extends BaseEntity {
     senha: string;
 
     @ManyToOne(type => Setor, setor => setor.colaboradores)
-    @JoinColumn({ name: 'setor_idSetor', referencedColumnName: 'idSetor' })
+    @JoinColumn({ name: 'setor_nomeSetor', referencedColumnName: 'nome' })
     setor: Setor;
 
     @OneToMany(() => Aprovacao, (aprovacao) => aprovacao.colaborador)

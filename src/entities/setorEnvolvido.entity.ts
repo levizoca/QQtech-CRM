@@ -9,9 +9,9 @@ export class SetorEnvolvido extends BaseEntity {
     @JoinColumn({ name: 'crm_numeroCadastro', referencedColumnName: 'numeroCadastro' })
     crm: Crm;
 
-    @PrimaryColumn({ type: 'varchar', name: 'setor_idSetor' })
+    @PrimaryColumn({ type: 'varchar', name: 'setor_nomeSetor' })
     @ManyToOne(type => Setor, setor => setor.setoresEnvolvidos)
-    @JoinColumn({ name: 'setor_idSetor', referencedColumnName: 'idSetor' })
+    @JoinColumn({ name: 'setor_nomeSetor', referencedColumnName: 'nome' })
     setor: Setor;
 
     @Column({ nullable: false, type: 'varchar', length: 6})

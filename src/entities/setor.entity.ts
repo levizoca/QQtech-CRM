@@ -4,10 +4,7 @@ import { SetorEnvolvido } from './setorEnvolvido.entity';
 
 @Entity()
 export class Setor extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    idSetor: number;
-    
-    @Column({ nullable: false, type: 'varchar', length: 255 })
+    @PrimaryColumn({ nullable: false, type: 'varchar', length: 255 })
     nome: string;
 
     @Column({ nullable: false, type: 'text'})
