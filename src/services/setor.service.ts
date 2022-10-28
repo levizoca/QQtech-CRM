@@ -23,19 +23,19 @@ export class SetorService {
         return this.SetorService.save(setor);
     }
 
-    findOne(nome: string): Promise<Setor> {
-        return this.SetorService.findOneBy({ nome: nome });
+    findOne(idSetor: number): Promise<Setor> {
+        return this.SetorService.findOneBy({ idSetor: idSetor });
     }
 
-    async update(nome: string, updateSetorDto: UpdateSetorDto) {
-        const setor = await this.SetorService.findOneBy({nome});
+    async update(idSetor: number, updateSetorDto: UpdateSetorDto) {
+        const setor = await this.SetorService.findOneBy({idSetor});
         setor.nome = updateSetorDto.nome;
         setor.descricao = updateSetorDto.descricao;
 
         return this.SetorService.save(setor);
     }
 
-    async remove(nome: string): Promise<void> {
-        await this.SetorService.delete(nome);
+    async remove(idSetor: number): Promise<void> {
+        await this.SetorService.delete(idSetor);
     }
 }

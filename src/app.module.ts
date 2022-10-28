@@ -5,9 +5,16 @@ import { ColaboradorModule } from './modules/colaborador.module';
 import { SetorModule } from './modules/setor.module';
 import { DocumentoModule } from './modules/documento.module';
 import { AprovacaoModule } from './modules/aprovacao.module';
+import { SetorEnvolvidoModule } from './modules/setorEnvolvido.module';
 
 @Module({
-  imports: [ColaboradorModule, SetorModule, DocumentoModule, AprovacaoModule],
+  imports: [
+    ColaboradorModule,
+    SetorModule,
+    DocumentoModule, 
+    AprovacaoModule,
+    SetorEnvolvidoModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

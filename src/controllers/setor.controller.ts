@@ -19,19 +19,19 @@ export class SetorController {
     }
 
     /*"Validation failed (numeric string is expected)"*/
-    @Get(':nome')
-    findOne(@Param('nome', ParseIntPipe) nome: string): Promise<Setor> {
-        return this.setorService.findOne(nome);
+    @Get(':idSetor')
+    findOne(@Param('idSetor', ParseIntPipe) idSetor: number): Promise<Setor> {
+        return this.setorService.findOne(idSetor);
     }
 
     /*Cannot set properties of null (setting 'nome')*/
-    @Patch(':nome')
-    update(@Param('nome') nome: string, @Body() updateSetorDto: UpdateSetorDto) {
-        return this.setorService.update(nome, updateSetorDto);
+    @Patch(':idSetor')
+    update(@Param('idSetor') idSetor: number, @Body() updateSetorDto: UpdateSetorDto) {
+        return this.setorService.update(idSetor, updateSetorDto);
     }
 
-    @Delete(':nome')
-    remove(@Param('nome') id: string): Promise<void> {
-        return this.setorService.remove(id);
+    @Delete(':idSetor')
+    remove(@Param('idSetor') idSetor: number): Promise<void> {
+        return this.setorService.remove(idSetor);
     }
 }

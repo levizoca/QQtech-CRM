@@ -1,4 +1,6 @@
 import { Controller } from '@nestjs/common';
 
-@Controller('documento')
-export class CrmController {}
+@Controller('crm')
+export class CrmController {
+    
+}
