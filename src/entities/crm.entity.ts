@@ -20,7 +20,7 @@ export class Crm extends BaseEntity {
     @Column({ nullable: false, type: 'text'})
     complexidade: string;
 
-    @Column({ nullable: false, type: 'timestamp'})
+    @Column({ nullable: true, type: 'timestamp'})
     dataCriacao: string;
 
     @Column({ nullable: true, type: 'timestamp'})
