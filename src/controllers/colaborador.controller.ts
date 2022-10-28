@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Render } from '@nestjs/common';
 import { CreateColaboradorDto } from 'src/dto/create-colaborador.dto';
 import { UpdateColaboradorDto } from 'src/dto/update-colaborador.dto';
 import { Colaborador } from 'src/entities/colaborador.entity';
@@ -7,6 +7,13 @@ import { ColaboradorService } from 'src/services/colaborador.service';
 @Controller('/colaborador')
 export class ColaboradorController {
     constructor(private readonly colaboradorService: ColaboradorService) { }
+
+    @Get('/home')
+    @Render('home')
+    async home() {
+        const result = await this.colaboradorService.findAll();
+        return result ? { colaborador: result } : { colaborador: [] };
+    }
 
     @Post('/create')
     create(@Body() createColaboradorDto: CreateColaboradorDto): Promise<Colaborador> {

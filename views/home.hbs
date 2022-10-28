@@ -47,7 +47,6 @@
 
         <br>
         <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Página inicial</h1><br>
-
         <div class="linha-1">
             <div style="margin-left: 34%;">
                 <div class=e614_100>
@@ -137,6 +136,12 @@
                 </div>
             </div>
         </div>
+        <br>
+        
+        {{#each colaborador }}
+            <li>{{ nome }} - email: {{ email }} </li>
+        {{/each}}
+
     </div>
 </body>
 
