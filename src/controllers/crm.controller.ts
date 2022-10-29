@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Render } from '@nestjs/common';
 import { CreateCrmDto } from 'src/dto/create-crm.dto';
 import { UpdateCrmDto } from 'src/dto/update-crm.dto';
 import { CrmService } from 'src/services/crm.service';
@@ -8,6 +8,20 @@ import { Crm } from 'src/entities/crm.entity';
 export class CrmController {
     constructor(private readonly crmService: CrmService) { }
 
+    @Get('/home')
+    @Render('home')
+    async home() {
+        const result = await this.crmService.findAll();
+        return result ? { crm: result } : { crm: [] };
+    }
+
+    @Get('/visualizar/:numeroCadastro')
+    @Render('visualizarCRM')
+    visualizar(@Param('numeroCadastro', ParseIntPipe) numeroCadastro: string) {
+        const result = this.crmService.findOne(numeroCadastro);
+        return result ? { crm: result } : { crm: [] };
+    }
+    
     @Post('/create')
     create(@Body() CreateCrmDto: CreateCrmDto): Promise<Crm> {
         return this.crmService.create(CreateCrmDto);
