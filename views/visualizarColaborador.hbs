@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styleVisualizarColaborador.css">
+    <link rel="stylesheet" href="/base.css">
+    <title>Visualizar Colaborador</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.cs">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    
+</head>
+
+<body>
+    <div class="background">
+        <header class="header">
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+                <i class="fas fa-times" id="cancel"></i>
+            </label>
+            <div class="sidebar">
+                <header>
+                    <h3>Bem-Vindo</h3><b></b>
+                </header>
+                <a href="/crm/home">
+                    <i class="fas fa-home"></i>
+                    <span>Página inicial</span>
+                </a>
+                <a href="/colaborador/visualizar">
+                    <i class="fas fa-user-alt"></i>
+                    <span>Colaboradores</span>
+                </a>
+                <a href="/visualizar/crm">
+                    <i class="fas fa-stream"></i>
+                    <span>Visualizar CRM</span>
+                </a>
+                <a href="/cadastro/crm">
+                    <i class="fas fa-stream"></i>
+                    <span>Criar CRM</span>
+                </a>
+                <a href="/login">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
+        </header class="masthead">
+
+        <br>
+        <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Visualizar Colaboradores</h1><br>
+
+        <div style="text-align: center;">
+            <a href="/cadastro/colaborador" style="font-family: Arial, Helvetica, sans-serif;">Cadastrar Colaboradores</a><br><br>
+        </div>
+
+        <div class="container">
+            <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Setor</th>
+                    <th>Cargo</th>
+                    <th>E-mail</th>
+                    <th>Editar</th>
+                    <th>Excluir</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                {{#each colaborador}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{nome}}</td>
+                    <td>{{setor}}</td>
+                    <td>{{cargo}}</td>
+                    <td>{{email}}</td>
+                    <td><a href="/editar/colaborador/{{_id}}">Editar</a></td>
+                    <td><form action="/colaborador/{{id}}" method="post"><input type="submit" value="Excluir"/></form>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </div>
+
+    </div>
+</body>
+
+</html>

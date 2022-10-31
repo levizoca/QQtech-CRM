@@ -11,15 +11,9 @@ export class AppController {
     return { message: 'Hello world!' };
   }
 
-  @Get('/home')
-  @Render('home')
-  home() {
-    return { message: 'Hello world!' };
-  }
-
   @Get('/cadastro/colaborador')
   @Render('cadastroColaborador')
-  cadastroColab() {
+  cadastroColaborador() {
     return { message: 'Hello world!' };
   }
 

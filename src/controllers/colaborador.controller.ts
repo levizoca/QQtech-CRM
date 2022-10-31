@@ -8,8 +8,8 @@ import { ColaboradorService } from 'src/services/colaborador.service';
 export class ColaboradorController {
     constructor(private readonly colaboradorService: ColaboradorService) { }
 
-    @Get('/home')
-    @Render('home')
+    @Get('/visualizar')
+    @Render('visualizarColaborador')
     async home() {
         const result = await this.colaboradorService.findAll();
         return result ? { colaborador: result } : { colaborador: [] };
@@ -35,7 +35,7 @@ export class ColaboradorController {
         return this.colaboradorService.update(id, updateColaboradorDto);
     }
 
-    @Delete(':id')
+    @Post(':id')
     remove(@Param('id') id: string): Promise<void> {
         return this.colaboradorService.remove(id);
     }
