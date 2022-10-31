@@ -23,7 +23,7 @@
                 <header>
                     <h3>Bem-Vindo</h3><b></b>
                 </header>
-                <a href="/home">
+                <a href="/crm/home">
                     <i class="fas fa-home"></i>
                     <span>Página inicial</span>
                 </a>
@@ -53,7 +53,7 @@
                 <div class=e614_100>
                     <div class="e612_41"></div>
                     <span class="e612_42">Pesquisa:</span>
-                    <div class="e612_43"></div>
+                    <input type="text" class="e612_43"></input>
                 </div>
             </div>
             <select class="formInput-50" name="Setores envolvidos">
@@ -66,78 +66,38 @@
 
         <div class="">
             <div class="linha">
-                <div class="coluna-50-1">
-                    <div class="col">
-                        <div class="e612_44">
-                            <div class="e608_28">
-                                <div class="linha-2">
-                                    <div class="col-10">
-                                        <div class="e608_29"></div>
-                                    </div>
-
-                                    <div class="col-40-2">
-                                        <span class="e608_30">CRM nº: 123987456</span><br>
-                                        <span class="e614_72">Detalhes sobre a CRM</span>
-                                    </div>
-
-                                    <div class="col-40">
-                                        <div class=e711_16>
-                                            <span class="e710_6">Data de abertura: 19/02/2022</span><br>
-                                            <span class="e710_7">Versão: 3</span><br>
-                                            <span class="e710_8">Situação: Em Análise</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-10">
-                                        <div class="e711_13">
-                                            <a href="/VisualizarCRM/crmView.html">
-                                                <input type="button" value="Abrir" class="botaoAbrir">
-                                            </a>
-                                        </div>
-                                    </div>
+                {{#each crm }}
+                <div class="col-1">
+                    <div class="e612_44">
+                        <div class="e608_28">
+                            <div class="linha-2">
+                                <div class="col-10">
+                                    <div class="e608_29"></div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="coluna-50-1">
-                    {{#each crm }}
-                    <div class="col-1">
-                        <div class="e612_44">
-                            <div class="e608_28">
-                                <div class="linha-2">
-                                    <div class="col-10">
-                                        <div class="e608_29"></div>
-                                    </div>
-
-                                    <div class="col-40-2">
-                                        <span class="e608_30">Crm nº:{{ numeroCadastro }}</li><br>
+                                <div class="col-40-2">
+                                    <span class="e608_30">Crm nº:{{ numeroCadastro }}</li><br>
                                         <span class="e614_72">Detalhes: {{ descricao }}</span>
+                                </div>
+                                <div class="col-40">
+                                    <div class=e711_16>
+                                        <span class="e710_6">Data de abertura: </span><br>
+                                        <span class="e710_7">Versão: {{ versao }}</span><br>
+                                        <span class="e710_8">Situação: {{ situacao }}</span>
                                     </div>
-
-                                    <div class="col-40">
-                                        <div class=e711_16>
-                                            <span class="e710_6">Data de abertura: </span><br>
-                                            <span class="e710_7">Versão: {{ versao }}</span><br>
-                                            <span class="e710_8">Situação: {{ situacao }}</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-10">
-                                        <div class="e711_13">
-                                            <a href="/visualizar/crm">
-                                                <input type="button" value="Abrir" class="botaoAbrir">
-                                            </a>
-                                        </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="e711_13">
+                                        <a href="/visualizar/crm">
+                                            <input type="button" value="Abrir" class="botaoAbrir">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br>
-                    {{/each}}<br>
                 </div>
+                <br>
+                {{/each}}<br>
             </div>
         </div>
         <br>

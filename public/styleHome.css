@@ -126,16 +126,14 @@
 	letter-spacing:0;
 }
 .e612_43 { 
-	background-color:rgba(246.49999290704727, 243.41873824596405, 243.41873824596405, 1);
+	background-color:rgba(246, 243, 243, 1);
+	border-width: 0px;
 	width:391px;
 	height:27px;
 	position:absolute;
 	left:113px;
 	top:11px;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
-	border-bottom-left-radius:5px;
-	border-bottom-right-radius:5px;
+	border-radius:5px;
 }
 
 /*Tela*/
@@ -182,7 +180,8 @@
 }
 
 .col-1 {
-	margin-left: 1%;
+	margin-left: 7.5%;
+	margin-top: 1%;
 }
 
 .col-10 {

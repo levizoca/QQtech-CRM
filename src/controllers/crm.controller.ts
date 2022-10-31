@@ -19,7 +19,7 @@ export class CrmController {
     @Render('visualizarCRM')
     visualizar(@Param('numeroCadastro', ParseIntPipe) numeroCadastro: string) {
         const result = this.crmService.findOne(numeroCadastro);
-        return result ? { crm: result } : { crm: [] };
+        return result ? { crm: result } : { crm: [numeroCadastro] };
     }
     
     @Post('/create')
