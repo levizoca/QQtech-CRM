@@ -48,31 +48,34 @@
         <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Cadastro de CRMs</h1>
         <div class="container">
             <div class="cadastroForm">
-                <form action="">
+                <form class="form">
                     <br>
                     <label class="formLabel">Descrição da demanda:</label><br>
-                    <textarea class="textArea" placeholder="Descrição da demanda" cols="60" rows="10"></textarea>
+                    <textarea class="textArea" name="descricao" placeholder="Descrição da demanda" cols="60" rows="10"></textarea>
 
                     <label class="formLabel">Objetivo a ser atendido:</label><br>
-                    <textarea class="textArea" placeholder="Objetivo a ser atendido" cols="60" rows="10"></textarea>
+                    <textarea class="textArea" name="objetivo" placeholder="Objetivo a ser atendido" cols="60" rows="10"></textarea>
 
                     <label class="formLabel">Justificativa:</label><br>
-                    <textarea class="textArea" placeholder="Justificativa" cols="60" rows="10"></textarea>
+                    <textarea class="textArea" name="justificativa" placeholder="Justificativa" cols="60" rows="10"></textarea>
+
+                    <label class="formLabel">Comportamento offline:</label><br>
+                    <textarea class="textArea" name="comportamentoOffline" placeholder="Comportamento offline:" cols="60" rows="10"></textarea>
 
                     <br><br>
                     <div class="linha">
                         <div class="coluna-50">
                             <label class="formLabel">Complexidade:</label><br>
-                            <select class="formInput-50" name="Complexidade" id="">
-                                <option value="Baixa">Baixa</option>
-                                <option value="Mediana">Mediana</option>
-                                <option value="Alta">Alta</option>
+                            <select class="formInput-50" name="complexidade">
+                                <option value="baixa">Baixa</option>
+                                <option value="mediana">Mediana</option>
+                                <option value="alta">Alta</option>
                             </select>
                         </div>
 
                         <div class="coluna-50">
                             <label class="formLabel">Data de abertura:</label><br>
-                            <input type="date" class="formInput-50"><br>
+                            <input type="date" name="dataCriacao" class="formInput-50"><br>
                         </div>
                     </div><br>
 
@@ -82,25 +85,57 @@
                             <select class="formInput-50" name="Setores envolvidos">
                                 <option value="Fiscal">Fiscal</option>
                                 <option value="TI">TI</option>
-                                <option value="RH">RH</option>
+                                <option value="Mercantil">Mercantil</option>
                             </select>
                         </div>
 
                         <div class="coluna-50">
-                            <label class="formLabel">Anexos:</label><br>
-                            <form action="" method="post" enctype="multipart/form-data">
-                                <input type="file" name="Arquivo" id="Arquivo">
-                                <input type="submit" value="Enviar">
-                            </form>
+                            <label class="formLabel">Versão:</label><br>
+                            <input type="number" name="versao" class="formInput-50"><br>
                         </div>
+                        
+                    </div>
+
+                    <div class="linha">
+                        <div class="coluna-50">
+                            <label class="formLabel">Situação:</label><br>
+                            <input type="text" name="situacao" class="formInput-50"><br>
+                        </div>
+
                     </div>
                     <br>
-                    <input type="button" value="Cadastrar" class="botaoCadastrar">
+                    <input type="submit" value="Cadastrar" class="botaoCadastrar">
                     <br><br>
                 </form>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+        const formEl = document.querySelector('.form');
+
+        formEl.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(formEl);
+            const data = Object.fromEntries(formData);
+
+            fetch('http://localhost:3000/crm/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .then((response) => {
+                    alert('Crm cadastrada com sucesso!');
+                    window.location.href = '/crm/home';
+                })
+                .catch(error => console.log(error));
+        });
+</script>
 
 </html>

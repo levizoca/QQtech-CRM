@@ -46,39 +46,66 @@
         <br><h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Cadastro de Colaboradores</h1>
         <div class="container">
             <div class="cadastroForm">
-                <form action="">
+                <form class="form">
                     <br>
                     <label for="Nome" class="formLabel">Nome:</label><br>
-                    <input placeholder="  Nome" type="text" class="formInput"><br><br>
+                    <input placeholder="  Nome" name="nome"    type="text" class="formInput"><br><br>
 
                     <div class="linha">
                         <div class="coluna-50">
                             <label for="CPF" class="formLabel-50">CPF:</label><br>
-                            <input placeholder="  CPF" type="text" class="formInput-50"><br>
+                            <input placeholder="  CPF" name="cpf" type="text" class="formInput-50"><br>
                         </div>
                         <div class="coluna-50">
                             <label for="Setor" class="formLabel-50">Setor:</label><br>
-                            <select class="formInput-50" name="Setores envolvidos">
+                            <select class="formInput-50" name="setor">
                                 <option value="Fiscal">Fiscal</option>
                                 <option value="TI">TI</option>
-                                <option value="RH">RH</option>
+                                <option value="Mercantil">Mercantil</option>
                             </select>
                         </div>
                     </div><br>
 
                     <label for="Cargo" class="formLabel">Cargo:</label><br>
-                    <input placeholder="  Cargo" type="text" class="formInput"><br><br>
+                    <input placeholder="  Cargo" name="cargo" type="text" class="formInput"><br><br>
     
+                    <label for="E-mail:" class="formLabel">E-mail:</label><br>
+                    <input placeholder="  E-mail:" name="email" type="text" class="formInput"><br><br>
+
                     <label for="Senha" class="formLabel">Senha:</label><br>
-                    <input placeholder="  Senha" type="password" class="formInput"><br><br>
-                    
-                    <label for="Confirmar senha:" class="formLabel">Confirmar senha:</label><br>
-                    <input placeholder="  Confirmar senha:" type="password" class="formInput"><br><br>
+                    <input placeholder="  Senha" name="senha"   type="password" class="formInput"><br><br>
     
-                    <input type="button" value="Cadastrar" class="botaoCadastrar"><br><br>
+                    <input type="submit" value="Cadastrar" class="botaoCadastrar"><br><br>
                 </form>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+        const formEl = document.querySelector('.form');
+
+        formEl.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(formEl);
+            const data = Object.fromEntries(formData);
+
+            fetch('http://localhost:3000/colaborador/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .then((response) => {
+                    alert('Colaborador cadastrado com sucesso!');
+                    window.location.href = '/colaborador/visualizar';
+                })
+                .catch(error => console.log(error));
+        });
+</script>
+
 </html>

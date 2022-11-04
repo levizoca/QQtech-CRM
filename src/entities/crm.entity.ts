@@ -32,7 +32,7 @@ export class Crm extends BaseEntity {
     @Column({ nullable: false, type: 'varchar', length: 11})
     situacao: string;
 
-    @Column({ nullable: false, type: 'text'})
+    @Column({ nullable: true, type: 'text'})
     comportamentoOffline: string;
     
     @ManyToOne(type => Aprovacao, aprovacao => aprovacao.crms)
