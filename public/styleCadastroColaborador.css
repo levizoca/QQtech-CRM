@@ -1,0 +1,75 @@
+.formInput {
+  margin-left: 5%;
+  border-radius: 7px;
+  border-width: 0px;
+  height: 20px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  width: 90%;
+}
+
+.formInput-50 {
+  border-radius: 7px;
+  border-width: 0px;
+  height: 20px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 5px;
+  width: 90%;
+}
+
+.formLabel {
+  margin-left: 5%;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.formLabel-50 {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.linha {
+  margin-left: 5%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.coluna-50 {
+  width: 50%;
+}
+
+.botaoCadastrar {
+  margin-left: 37%;
+  background-color: #5e864c;
+  font-weight: bold;
+  color: antiquewhite;
+  border-radius: 7px;
+  border-width: 0px;
+  width: 85px;
+  height: 20px;
+}
+
+.containerCadastro {
+  display: flex;
+  justify-content: center;
+}
+
+.cadastroForm {
+
+  margin-top: 15px;
+  width: 350px;
+  border-radius: 10px;
+  background-color: rgb(201, 201, 201);
+  box-shadow: 4px 4px 5px 0px rgb(100, 100, 100);
+}
+
+.logo {
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+}
