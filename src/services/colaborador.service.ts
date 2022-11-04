@@ -46,4 +46,8 @@ export class ColaboradorService {
     async remove(id: string): Promise<void> {
         await this.ColaboradorService.delete(id);
     }
+
+    async findByEmail(email: string): Promise<Colaborador | undefined> {
+        return await this.ColaboradorService.findOneBy({ email: email });
+    }
 }

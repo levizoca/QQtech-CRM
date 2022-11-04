@@ -137,6 +137,11 @@
 }
 
 /*Tela*/
+.background-1 {
+	background: linear-gradient(90deg, #658a5e, #d2ffda);
+	width: 100vw;
+  }
+
 .botaoAbrir {
     background-color: #5e864c;
     font-weight: bold;

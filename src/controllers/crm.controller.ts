@@ -11,15 +11,17 @@ export class CrmController {
     @Get('/home')
     @Render('home')
     async home() {
-        const result = await this.crmService.findAll();
-        return result ? { crm: result } : { crm: [] };
+        return await this.crmService
+                            .findAll()
+                            .then((result) => result ? { crm: result } : { crm: [] });
     }
 
     @Get('/visualizar/:numeroCadastro')
     @Render('visualizarCRM')
-    visualizar(@Param('numeroCadastro', ParseIntPipe) numeroCadastro: string) {
-        const result = this.crmService.findOne(numeroCadastro);
-        return result ? { crm: result } : { crm: [numeroCadastro] };
+    async visualizar(@Param('numeroCadastro') numeroCadastro: string) {
+        return await this.crmService
+                            .findOne(numeroCadastro)
+                            .then((result) => result ? { crm: result } : { crm: [] });
     }
     
     @Post('/create')
@@ -33,7 +35,7 @@ export class CrmController {
     }
 
     @Get(':numeroCadastro')
-    findOne(@Param('numeroCadastro', ParseIntPipe) numeroCadastro: string): Promise<Crm> {
+    findOne(@Param('numeroCadastro') numeroCadastro): Promise<Crm> {
         return this.crmService.findOne(numeroCadastro);
     }
 

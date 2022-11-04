@@ -31,7 +31,7 @@ export class CrmService {
         return this.CrmService.save(crm);
     }
 
-    findOne(numeroCadastro: string): Promise<Crm> {
+    async findOne(numeroCadastro: string): Promise<Crm> {
         return this.CrmService.findOneBy({ numeroCadastro: numeroCadastro });
     }
 

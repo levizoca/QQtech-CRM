@@ -11,5 +11,6 @@ import { ColaboradorService } from '../services/colaborador.service';
     ColaboradorService,
   ],
   controllers: [ColaboradorController],
+  exports: [ColaboradorService]
 })
 export class ColaboradorModule {}

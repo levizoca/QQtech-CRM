@@ -46,18 +46,45 @@
         <div class="container">
             <div class="loginForm">
                 <img class="logo" src="/logo.png" alt="">
-                <form action="">
-                    <label placeholder="Login" for="Login" class="formLabel">Login:</label><br>
-                    <input placeholder="  Login" type="text" class="loginInput"><br><br>
+                <form class="form">
+                    <label for="Login" class="formLabel">E-mail:</label><br>
+                    <input placeholder="  E-mail" name="email" type="text" class="loginInput"><br><br>
                     <label placeholder="Senha" for="Senha" class="formLabel">Senha:</label><br>
-                    <input placeholder="  Senha" type="password" class="loginInput"><br><br> 
+                    <input placeholder="  Senha" name="senha" type="password" class="loginInput"><br><br> 
                     <a href="">Esqueci minha senha</a><br>     
-                    <a href="">
-                        <input type="button" value="Entrar" class="botaoEntrar">
-                    </a>          
+            
+                    <input type="submit" value="Entrar" class="botaoEntrar">
+       
                 </form>
             </div>
         </div>
     </div>
 </body>
+
+<script>
+        const formEl = document.querySelector('.form');
+
+        formEl.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(formEl);
+            const data = Object.fromEntries(formData);
+
+            fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .then((response) => {
+                    alert('Login realizado com sucesso!');
+                    window.location.href = '/colaborador/visualizar';
+                })
+                .catch(error => console.log(error));
+        });
+</script>
+
 </html>
