@@ -29,10 +29,6 @@
                     <i class="fas fa-user-alt"></i>
                     <span>Colaboradores</span>
                 </a>
-                <a href="/visualizar/crm">
-                    <i class="fas fa-stream"></i>
-                    <span>Visualizar CRM</span>
-                </a>
                 <a href="/cadastro/crm">
                     <i class="fas fa-stream"></i>
                     <span>Criar CRM</span>
@@ -83,9 +79,9 @@
                         <div class="coluna-50">
                             <label class="formLabel">Setores envolvidos:</label><br>
                             <select class="formInput-50" name="Setores envolvidos">
-                                <option value="Fiscal">Fiscal</option>
-                                <option value="TI">TI</option>
-                                <option value="Mercantil">Mercantil</option>
+                                {{#each setor}}
+                                <option value={{nome}}>{{nome}}</option>
+                                {{/each}}
                             </select>
                         </div>
 
@@ -94,7 +90,7 @@
                             <input type="number" name="versao" class="formInput-50"><br>
                         </div>
                         
-                    </div>
+                    </div><br>
 
                     <div class="linha">
                         <div class="coluna-50">

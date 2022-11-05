@@ -1,5 +1,4 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query, Render, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/shared/jwt-auth.guard';
 import { CreateColaboradorDto } from 'src/dto/create-colaborador.dto';
 import { UpdateColaboradorDto } from 'src/dto/update-colaborador.dto';
 import { Colaborador } from 'src/entities/colaborador.entity';
@@ -9,7 +8,6 @@ import { ColaboradorService } from 'src/services/colaborador.service';
 export class ColaboradorController {
     constructor(private readonly colaboradorService: ColaboradorService) { }
 
-    @UseGuards(JwtAuthGuard)
     @Get('/visualizar')
     @Render('visualizarColaborador')
     async home() {
@@ -17,7 +15,6 @@ export class ColaboradorController {
         return result ? { colaborador: result } : { colaborador: [] };
     }
 
-    @UseGuards(JwtAuthGuard)
     @Post('/create')
     create(@Body() createColaboradorDto: CreateColaboradorDto): Promise<Colaborador> {
         return this.colaboradorService.create(createColaboradorDto);

@@ -11,5 +11,6 @@ import { SetorService } from '../services/setor.service';
     SetorService,
   ],
   controllers: [SetorController],
+  exports: [SetorService],
 })
 export class SetorModule {}

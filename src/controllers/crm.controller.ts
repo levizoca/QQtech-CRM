@@ -3,10 +3,13 @@ import { CreateCrmDto } from 'src/dto/create-crm.dto';
 import { UpdateCrmDto } from 'src/dto/update-crm.dto';
 import { CrmService } from 'src/services/crm.service';
 import { Crm } from 'src/entities/crm.entity';
+import { ColaboradorService } from 'src/services/colaborador.service';
 
 @Controller('crm')
 export class CrmController {
-    constructor(private readonly crmService: CrmService) { }
+    constructor(private readonly crmService: CrmService, 
+                private readonly colaboradorService: ColaboradorService
+            ) { }
 
     @Get('/home')
     @Render('home')
@@ -19,9 +22,15 @@ export class CrmController {
     @Get('/visualizar/:numeroCadastro')
     @Render('visualizarCRM')
     async visualizar(@Param('numeroCadastro') numeroCadastro: string) {
-        return await this.crmService
-                            .findOne(numeroCadastro)
-                            .then((result) => result ? { crm: result } : { crm: [] });
+        const crm = await this.crmService.findOne(numeroCadastro);
+        return crm ? { crm: crm } : { crm: [] };
+    }
+
+    @Get('/atualizar/:numeroCadastro')
+    @Render('atualizarCRM')
+    async atualizar(@Param('numeroCadastro') numeroCadastro: string) {
+        const crm = await this.crmService.findOne(numeroCadastro);
+        return crm ? { crm: crm } : { crm: [] };
     }
     
     @Post('/create')

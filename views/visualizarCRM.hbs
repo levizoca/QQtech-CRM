@@ -30,10 +30,6 @@
                     <i class="fas fa-user-alt"></i>
                     <span>Colaboradores</span>
                 </a>
-                <a href="/visualizar/crm">
-                    <i class="fas fa-stream"></i>
-                    <span>Visualizar CRM</span>
-                </a>
                 <a href="/cadastro/crm">
                     <i class="fas fa-stream"></i>
                     <span>Criar CRM</span>
@@ -55,38 +51,38 @@
                     <div class="linha">
                         <div class="coluna-50">
                             <label class="formLabel">Número de Cadastro:</label><br>
-                            <p class="formInput-50">{{#each crm}} {{numeroCadastro}} {{/each}} </p><br>
+                            <p class="formInput-50">{{crm.numeroCadastro}}</p><br>
                         </div>
 
                         <div class="coluna-50">
                             <label class="formLabel">Solicitante:</label>
-                            <p class="formInput-50">Carlos José</p><br>
+                            <p class="formInput-50">{{#each colaborador}} {{nome}} {{/each}} </p><br>
                         </div>
                     </div><br>
 
                     <label class="formLabel">Descrição da demanda:</label><br><br>
-                    <textarea class="textArea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae vehicula lacus. Quisque et commodo ante, nec blandit urna. Nulla quis iaculis leo, in dapibus libero. Aenean vel facilisis diam, quis vulputate odio. In iaculis varius libero, rhoncus egestas sapien luctus sed. Cras tempus, nulla id laoreet iaculis, ipsum purus sagittis nibh, nec auctor sapien nunc ac erat. Integer malesuada ut mi id tincidunt." 
-                    cols="60" rows="10"></textarea>
+                    <textarea class="textArea"  
+                    cols="60" rows="10"> {{ crm.descricao }} </textarea>
 
                     <label class="formLabel">Objetivo a ser atendido:</label><br><br>
-                    <textarea class="textArea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae vehicula lacus. Quisque et commodo ante, nec blandit urna. Nulla quis iaculis leo, in dapibus libero. Aenean vel facilisis diam, quis vulputate odio. In iaculis varius libero, rhoncus egestas sapien luctus sed. Cras tempus, nulla id laoreet iaculis, ipsum purus sagittis nibh, nec auctor sapien nunc ac erat. Integer malesuada ut mi id tincidunt." 
-                    cols="60" rows="10"></textarea>
+                    <textarea class="textArea"  
+                    cols="60" rows="10">{{ crm.objetivo }}</textarea>
 
                     <label class="formLabel">Justificativa:</label><br><br>
-                    <textarea class="textArea" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae vehicula lacus. Quisque et commodo ante, nec blandit urna. Nulla quis iaculis leo, in dapibus libero. Aenean vel facilisis diam, quis vulputate odio. In iaculis varius libero, rhoncus egestas sapien luctus sed. Cras tempus, nulla id laoreet iaculis, ipsum purus sagittis nibh, nec auctor sapien nunc ac erat. Integer malesuada ut mi id tincidunt."
-                    cols="60" rows="10"></textarea>
+                    <textarea class="textArea" 
+                    cols="60" rows="10">{{ crm.justificativa }}</textarea>
 
                     <br><br>
                     <div class="linha">
                         <div class="coluna-50">
                             <label class="formLabel">Complexidade:</label>
-                            <p class="formInput-50">Mediana</p><br>
+                            <p class="formInput-50">{{ crm.complexidade }}</p><br>
                             </select>
                         </div>
 
                         <div class="coluna-50">
                             <label class="formLabel">Data de abertura:</label>
-                            <p class="formInput-50">01/10/2022</p><br>
+                            <p class="formInput-50">{{ crm.dataCriacao }}</p><br>
                         </div>
                     </div><br>
 
@@ -102,7 +98,7 @@
                             <a href="">descrição.pdf</a>
                         </div>
                     </div><br>
-                    <a href="/atualizar/crm">
+                    <a href="/crm/atualizar/{{ crm.numeroCadastro }}">
                         <input type="button" value="Atualizar" class="botaoAtualizar">
                     </a>
                     <br><br>
