@@ -29,7 +29,7 @@ export class Crm extends BaseEntity {
     @Column({ nullable: false, type: 'integer'})
     versao: number;
 
-    @Column({ nullable: false, type: 'varchar', length: 11})
+    @Column({ nullable: false, type: 'varchar', length: 20})
     situacao: string;
 
     @Column({ nullable: true, type: 'text'})

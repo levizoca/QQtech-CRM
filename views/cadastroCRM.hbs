@@ -125,7 +125,7 @@
                 body: JSON.stringify(data)
             })
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => alert(data))
                 .then((response) => {
                     alert('Crm cadastrada com sucesso!');
                     window.location.href = '/crm/home';

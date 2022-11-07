@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,13 +45,13 @@
                 <img class="logo" src="/logo.png" alt="">
                 <form class="form">
                     <label for="Login" class="formLabel">E-mail:</label><br>
-                    <input placeholder="  E-mail" name="user" type="text" class="loginInput"><br><br>
+                    <input placeholder="  E-mail" name="email" type="text" class="loginInput"><br><br>
                     <label placeholder="Senha" for="Senha" class="formLabel">Senha:</label><br>
-                    <input placeholder="  Senha" name="password" type="password" class="loginInput"><br><br> 
-                    <a href="">Esqueci minha senha</a><br>     
-            
+                    <input placeholder="  Senha" name="senha" type="password" class="loginInput"><br><br>
+                    <a href="">Esqueci minha senha</a><br>
+
                     <input type="submit" value="Entrar" class="botaoEntrar">
-       
+
                 </form>
             </div>
         </div>
@@ -58,29 +59,29 @@
 </body>
 
 <script>
-        const formEl = document.querySelector('.form');
+    const formEl = document.querySelector('.form');
 
-        formEl.addEventListener('submit', (event) => {
-            event.preventDefault();
+    formEl.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-            const formData = new FormData(formEl);
-            const data = Object.fromEntries(formData);
+        const formData = new FormData(formEl);
+        const data = Object.fromEntries(formData);
 
-            fetch('http://localhost:3000/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(data => console.log(data))
-                .then((response) => {
-                    alert('Login realizado com sucesso!');
-                    window.location.href = '/colaborador/visualizar';
-                })
-                .catch(error => console.log(error));
-        });
+        fetch('http://localhost:3000/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                    window.location.href = '/profile';
+                }
+            });
+    });
 </script>
 
 </html>
